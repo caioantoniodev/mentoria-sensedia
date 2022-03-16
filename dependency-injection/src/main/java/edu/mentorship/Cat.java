@@ -1,4 +1,4 @@
-package example;
+package edu.mentorship;
 
 public class Cat implements Animal {
 
