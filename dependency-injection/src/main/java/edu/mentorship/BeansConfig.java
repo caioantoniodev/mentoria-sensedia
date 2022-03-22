@@ -1,9 +1,9 @@
 package edu.mentorship;
 
 import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Service;
+import org.springframework.context.annotation.Configuration;
 
-@Service
+@Configuration
 public class BeansConfig {
 
     @Bean(name = "bird")
@@ -11,7 +11,7 @@ public class BeansConfig {
         return new Bird();
     }
 
-    @Bean(name = "Cat")
+    @Bean(name = "cat")
     public Animal cat() {
         return new Cat();
     }
