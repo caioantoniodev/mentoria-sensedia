@@ -18,7 +18,7 @@ public class ConfigContextBeanCustom {
     private String property3;
 
     @Bean
-    @Profile(value="bean1")
+    @Profile(value="profile1")
     public ContextBeanCustom bean1(@Value("${application.property1}") String property1,
                                    @Value("${application.property2}") String property2,
                                    @Value("${application.property3}") String property3) {
@@ -28,7 +28,7 @@ public class ConfigContextBeanCustom {
     }
 
     @Bean
-    @Profile(value="bean2")
+    @Profile(value="profile2")
     public ContextBeanCustom bean2() {
         return new ContextBeanCustomImpl2(property1, property2, property3);
     }

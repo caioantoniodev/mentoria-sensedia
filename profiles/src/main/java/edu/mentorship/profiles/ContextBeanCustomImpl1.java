@@ -11,6 +11,6 @@ public class ContextBeanCustomImpl1 implements ContextBeanCustom {
 
     @Override
     public Response response() {
-        return new Response("bean1", property1, property2, property3);
+        return new Response("profile1", property1, property2, property3);
     }
 }

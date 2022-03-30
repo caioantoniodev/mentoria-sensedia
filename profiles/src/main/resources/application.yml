@@ -7,12 +7,12 @@ application:
   property3: 1010
 ---
 spring:
-  profiles: bean1
+  profiles: profile1
 application:
   property1: 110011
 
 ---
 spring:
-  profiles: bean2
+  profiles: profile2
 application:
   property2: 100001
