@@ -1,7 +1,6 @@
 package edu.mentorship;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.core.env.ConfigurableEnvironment;
 
 public class Main {
 
@@ -13,7 +12,7 @@ public class Main {
 
         var beanDefinitionNames = context.getBeanDefinitionNames();
 
-        ConfigurableEnvironment environment = context.getEnvironment();
+        var environment = context.getEnvironment();
 
         switch (ANIMAL) {
             case 1:
