@@ -1,6 +1,9 @@
 package edu.mentorship;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.core.env.MutablePropertySources;
+
+import java.util.Map;
 
 public class Main {
 
@@ -13,6 +16,10 @@ public class Main {
         var beanDefinitionNames = context.getBeanDefinitionNames();
 
         var environment = context.getEnvironment();
+
+        var systemEnvironment = environment.getSystemEnvironment();
+
+        var propertySources = environment.getPropertySources();
 
         switch (ANIMAL) {
             case 1:
