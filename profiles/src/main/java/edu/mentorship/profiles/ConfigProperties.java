@@ -1,16 +1,13 @@
 package edu.mentorship.profiles;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.Configuration;
 
-@Configuration
 @ConfigurationProperties(prefix = "application")
 public class ConfigProperties {
 
     private String property1;
     private String property2;
     private String property3;
-
 
     public String getProperty1() {
         return property1;
