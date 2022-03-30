@@ -8,7 +8,7 @@
 		<version>2.6.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.mentorship</groupId>
+	<groupId>edu.mentorship</groupId>
 	<artifactId>profiles</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>profiles</name>

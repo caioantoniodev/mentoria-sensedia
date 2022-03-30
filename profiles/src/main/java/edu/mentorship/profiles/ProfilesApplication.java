@@ -1,4 +1,4 @@
-package com.mentorship.profiles;
+package edu.mentorship.profiles;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
