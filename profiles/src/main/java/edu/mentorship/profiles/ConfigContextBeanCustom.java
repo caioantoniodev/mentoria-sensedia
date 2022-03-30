@@ -1,4 +1,4 @@
-package com.mentorship.profiles;
+package edu.mentorship.profiles;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

@@ -1,4 +1,4 @@
-package com.mentorship.profiles;
+package edu.mentorship.profiles;
 
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
