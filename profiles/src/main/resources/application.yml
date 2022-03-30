@@ -1,0 +1,18 @@
+server:
+  port: 8080
+
+application:
+  property1: 100
+  property2: 111
+  property3: 1010
+---
+spring:
+  profiles: profile1
+application:
+  property1: 110011
+
+---
+spring:
+  profiles: profile2
+application:
+  property2: 100001
