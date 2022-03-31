@@ -2,17 +2,17 @@ server:
   port: 8080
 
 application:
-  property1: 100
-  property2: 111
-  property3: 1010
+  property1: "Valor da Propriedade 1"
+  property2: "Valor da Propriedade 2"
+  property3: "Valor da Propriedade 3"
 ---
 spring:
   profiles: profile1
 application:
-  property1: 110011
+  property1: "Alterado o valor da Propriedade 1"
 
 ---
 spring:
   profiles: profile2
 application:
-  property2: 100001
+  property2: "Alterado o valor da Propriedade 2"
