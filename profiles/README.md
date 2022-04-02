@@ -1,1 +1,1 @@
-spring.profiles.active=bean1
+spring.profiles.active=profile1
