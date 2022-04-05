@@ -1,7 +1,7 @@
 {
   "properties": [
     {
-      "name": "coopdev.configurations",
+      "name": "cooperative-ms.configurations",
       "type": "java.lang.Object",
       "description": "Configuração default customizadas"
     }
