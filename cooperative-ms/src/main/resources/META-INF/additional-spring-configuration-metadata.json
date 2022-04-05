@@ -1,0 +1,9 @@
+{
+  "properties": [
+    {
+      "name": "coopdev.configurations",
+      "type": "java.lang.Object",
+      "description": "Configuração default customizadas"
+    }
+  ]
+}
