@@ -1,0 +1,34 @@
+{
+  "properties": [
+    {
+      "name": "cooperative-api.configurations",
+      "type": "java.lang.Object",
+      "description": "Custom configurations."
+    },
+    {
+      "name": "cooperative-api.configurations.datasource",
+      "type": "java.lang.Object",
+      "description": "Mongo configuration."
+    },
+    {
+      "name": "cooperative-api.configurations.datasource.uri",
+      "type": "java.lang.String",
+      "description": "Mongo URI configuration."
+    },
+    {
+      "name": "cooperative-api.configurations.redis",
+      "type": "java.lang.Object",
+      "description": "Redis cache configuration."
+    },
+    {
+      "name": "cooperative-api.configurations.kafka",
+      "type": "java.lang.Object",
+      "description": "Kafka message broker configuration."
+    },
+    {
+      "name": "application.version",
+      "type": "java.lang.String",
+      "description": "Application version."
+    }
+  ]
+}
