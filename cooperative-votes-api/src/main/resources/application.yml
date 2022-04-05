@@ -1,4 +1,4 @@
-cooperative-api:
+cooperative-votes-api:
   configurations:
     datasource:
       uri: ~
@@ -14,8 +14,8 @@ application:
 server:
   port: 8080
   servlet:
-    context-path: /api.cooperative-api
-    application-display-name: cooperative-api
+    context-path: /api.cooperative-votes-api
+    application-display-name: cooperative-votes-api
 spring:
   mvc:
     throw-exception-if-no-handler-found: true
@@ -32,7 +32,7 @@ spring:
       repositories:
         enabled: false
     mongodb:
-      uri: ${cooperative-api.configurations.datasource.uri}
+      uri: ${cooperative-votes-api.configurations.datasource.uri}
       field-naming-strategy: org.springframework.data.mongodb.core.mapping.SnakeCaseFieldNamingStrategy
   jackson:
     default-property-inclusion: non_null

@@ -3,7 +3,7 @@ version: '3'
 services:
   mongo:
     image: mongo
-    container_name: mongo
+    container_name: cooperative_votes_ms_mongo
     ports:
       - "27017:27017"
     environment:
@@ -16,7 +16,7 @@ services:
 
   mongo-express:
     image: mongo-express
-    container_name: mongo-express
+    container_name: cooperative_votes_ms_mongo_express
     ports:
       - "8081:8081"
     environment:
@@ -34,24 +34,25 @@ services:
       - mongo_dev:/data/db
 
   zookeeper:
-    container_name: zookeeper
-    image: zookeeper
+    container_name: cooperative_votes_ms_zookeeper
+    image: wurstmeister/zookeeper
     ports:
-      - "22181:2181"
-    environment:
-      ZOOKEEPER_CLIENT_PORT: 2181
-      ZOOKEEPER_TICK_TIME: 2000
+      - "2181:2181"
 
   kafka:
-    container_name: kafka
-    image: bitnami/kafka
+    container_name: cooperative_votes_ms_kafka
+    image: wurstmeister/kafka
     ports:
-      - "9092:29092"
+      - "9092:9092"
     depends_on:
       - zookeeper
+    environment:
+      KAFKA_ADVERTISED_HOST_NAME: 127.0.0.1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'false'
 
   redis:
-    container_name: redis
+    container_name: cooperative_votes_ms_redis
     image: redis
     ports:
       - "6379:6379"
