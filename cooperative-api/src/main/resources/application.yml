@@ -32,7 +32,7 @@ spring:
       repositories:
         enabled: false
     mongodb:
-      uri: ${coopdev.configurations.datasource.uri}
+      uri: ${cooperative-api.configurations.datasource.uri}
       field-naming-strategy: org.springframework.data.mongodb.core.mapping.SnakeCaseFieldNamingStrategy
   jackson:
     default-property-inclusion: non_null
