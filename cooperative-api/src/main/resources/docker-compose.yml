@@ -46,7 +46,7 @@ services:
     container_name: kafka
     image: bitnami/kafka
     ports:
-      - "29092:29092"
+      - "9092:29092"
     depends_on:
       - zookeeper
 
