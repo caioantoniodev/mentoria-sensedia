@@ -14,8 +14,8 @@ application:
 server:
   port: 8080
   servlet:
-    context-path: /api.cooperative-ms
-    application-display-name: coopdev
+    context-path: /api.cooperative-api
+    application-display-name: cooperative-api
 spring:
   mvc:
     throw-exception-if-no-handler-found: true
