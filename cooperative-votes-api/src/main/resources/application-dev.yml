@@ -1,4 +1,4 @@
-cooperative-api:
+cooperative-votes-api:
   configurations:
     datasource:
       uri:

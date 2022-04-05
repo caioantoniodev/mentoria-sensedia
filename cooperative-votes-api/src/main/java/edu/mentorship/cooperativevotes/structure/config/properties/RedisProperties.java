@@ -1,13 +1,12 @@
-package edu.mentorship.cooperative.structure.config.properties;
+package edu.mentorship.cooperativevotes.structure.config.properties;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 
 @Data
-@ConfigurationProperties(prefix="cooperative-api.configurations.redis")
+@ConfigurationProperties(prefix="cooperative-votes-api.configurations.redis")
 public class RedisProperties {
     @NotBlank(message="host is required.")
     private String host;

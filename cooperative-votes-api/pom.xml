@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>edu.mentorship</groupId>
-	<artifactId>cooperative-api</artifactId>
+	<artifactId>cooperative-votes-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>cooperative-api</name>
-	<description>Demo project for Spring Boot</description>
+	<name>cooperative-votes-api</name>
+	<description>Mentorship project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
