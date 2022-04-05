@@ -1,11 +1,7 @@
-cooperative-ms:
+cooperative-api:
   configurations:
     datasource:
       uri: ~
-      driver: ~
-      username: ~
-      password: ~
-      database: ~
     kafka:
       producer:
         bootstrapServerHost: ~
@@ -18,7 +14,7 @@ application:
 server:
   port: 8080
   servlet:
-    context-path: /api.coopdev
+    context-path: /api.cooperative-ms
     application-display-name: coopdev
 spring:
   mvc:
@@ -37,7 +33,7 @@ spring:
         enabled: false
     mongodb:
       uri: ${coopdev.configurations.datasource.uri}
-      field-naming-strategy: org.springframework.data.mapping.model.SnakeCaseFieldNamingStrategy
+      field-naming-strategy: org.springframework.data.mongodb.core.mapping.SnakeCaseFieldNamingStrategy
   jackson:
     default-property-inclusion: non_null
     serialization:

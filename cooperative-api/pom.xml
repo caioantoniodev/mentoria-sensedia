@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>edu.mentorship</groupId>
-	<artifactId>cooperative-ms</artifactId>
+	<artifactId>cooperative-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>cooperative-ms</name>
+	<name>cooperative-api</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>

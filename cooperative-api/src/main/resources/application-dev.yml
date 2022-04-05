@@ -1,4 +1,4 @@
-cooperative-ms:
+cooperative-api:
   configurations:
     datasource:
       uri:
