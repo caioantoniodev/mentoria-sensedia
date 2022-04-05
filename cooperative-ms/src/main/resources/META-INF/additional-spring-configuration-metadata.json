@@ -1,9 +1,0 @@
-{
-  "properties": [
-    {
-      "name": "cooperative-ms.configurations",
-      "type": "java.lang.Object",
-      "description": "Configuração default customizadas"
-    }
-  ]
-}
