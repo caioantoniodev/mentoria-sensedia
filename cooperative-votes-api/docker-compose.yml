@@ -53,7 +53,7 @@ services:
 
   redis:
     container_name: cooperative_votes_ms_redis
-    image: redis
+    image: library/redis:alpine
     ports:
       - "6379:6379"
 
