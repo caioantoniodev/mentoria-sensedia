@@ -1,17 +1,15 @@
 openapi: 3.0.1
 
 info:
-  title: Votação API
+  title: Cooperative Votes API
   description: |-
     Para obter mais informações sobre o desenvolvimento
-
+    
+    acessar o [github](https://github.com/ca1o19c/mentoria-sensedia/tree/main/cooperative-votes-api).
+    
     ## Overview
 
-    Api CoopVotes
-
-    Esta api está agnostica de clientes deste que uso protocolos, **HTTP**.
-
-    ## Começando
+    Cooperative Votes API
 
     Esta documentação ira auxiliar em novas implementações de __clients sides__, dando uma base
     de como manipular os recursos que a API provem.
@@ -76,22 +74,22 @@ info:
       `Version-Api: 1.0.0`
 
   contact:
-    email: vincius.cavalcanti16@gmail.com
-  version: 1.0.0
+    email: caio.antonio.c@outlook.com
+  version: 0.0.1
   license:
     name: "Apache 2.0"
     url: "https://www.apache.org/licenses/LICENSE-2.0.html"
 
 servers:
-  - url: 'http://localhost:8080/api'
-    description: 'Servidor de aplicação de homologação'
+  - url: http://localhost:8080/cooperative-votes-api/
+    description: 'Servidor de aplicação de desenvolvimento'
 
 
 tags:
   - name: Stave
-    x-displayName: Pauta
+    x-displayName: Stave
     description: |-
-      Um recurso Pauta `Stave` é uma representação abstrata na Api que guarda os dados de uma Pauta,
+      Um recurso Stave é uma representação abstrata na Api que guarda os dados de uma Pauta,
       o recurso tem como proposito guarda as informações de uma Pauta, tais como, o tema abordado, um
       descritivo para melhor compreensão do tema, inicio da sessão de votação, fim do sessão de votação,
       quantidade de votos a favor e contra por fim o total de votos recebidos. Consulte a sessão __Schemas__ para
@@ -512,7 +510,6 @@ components:
       description: |-
         `Requisição` foi aceita mas, os dados enviados está em conflito com o recurso a ser manipulado
         por exemplo: uma Pauta com um tema já foi cadastrada anteriormente.
-
 
         Para maiores informações consulte a [rfc-7231](https://httpwg.org/specs/rfc7231.html#status.409).
       content:

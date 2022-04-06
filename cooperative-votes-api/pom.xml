@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>edu.mentorship</groupId>
 	<artifactId>cooperative-votes-api</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>cooperative-votes-api</name>
 	<description>Mentorship project for Spring Boot</description>
 	<properties>
