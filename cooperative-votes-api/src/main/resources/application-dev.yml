@@ -5,7 +5,7 @@ cooperative-votes-api:
     kafka:
       producer:
         bootstrapServerHost: localhost:9092
-        topic:
+        topic: test
     redis:
       host: 127.0.0.1
       port: 6379
