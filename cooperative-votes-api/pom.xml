@@ -15,6 +15,13 @@
 	<description>Mentorship project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
+		<openapi-generator-maven-plugin.version>5.4.0</openapi-generator-maven-plugin.version>
+		<springfox-swagger2>3.0.0</springfox-swagger2>
+		<springfox-swagger2.version>3.0.0</springfox-swagger2.version>
+		<swagger-annotations.version>1.6.0</swagger-annotations.version>
+		<openapi-generator.version>3.3.4</openapi-generator.version>
+		<springdoc-openapi-webmvc-core.version>1.6.6</springdoc-openapi-webmvc-core.version>
+		<cxf.version>3.5.0</cxf.version>
 	</properties>
 	<build>
 		<plugins>
@@ -29,6 +36,50 @@
 						</exclude>
 					</excludes>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.openapitools</groupId>
+				<artifactId>openapi-generator-maven-plugin</artifactId>
+				<version>${openapi-generator-maven-plugin.version}</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<inputSpec>${project.basedir}/src/main/resources/public/api-contract.yml</inputSpec>
+							<generatorName>spring</generatorName>
+							<generateApiTests>false</generateApiTests>
+							<generateApis>true</generateApis>
+							<generateApiDocumentation>true</generateApiDocumentation>
+							<generateModelDocumentation>true</generateModelDocumentation>
+							<typeMappings>
+								<typeMapping>OffsetDateTime=java.time.LocalDateTime</typeMapping>
+							</typeMappings>
+							<output>${swagger.codegen.output.folder}</output>
+							<apiPackage>${project.groupId}.application.api</apiPackage>
+							<modelPackage>${project.groupId}.application.dto</modelPackage>
+							<invokerPackage>${project.groupId}.rest</invokerPackage>
+							<modelNameSuffix>Dto</modelNameSuffix>
+							<supportingFilesToGenerate>ApiUtil.java</supportingFilesToGenerate>
+							<configOptions>
+								<interfaceOnly>true</interfaceOnly>
+								<useTags>true</useTags>
+								<openApiNullable>false</openApiNullable>
+								<dateLibrary>java8</dateLibrary>
+								<java8>true</java8>
+							</configOptions>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
@@ -64,6 +115,27 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<!-- documentation -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>${springfox-swagger2.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-ui</artifactId>
+			<version>${springdoc-openapi-webmvc-core.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-webmvc-core</artifactId>
+			<version>${springdoc-openapi-webmvc-core.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-rs-client</artifactId>
+			<version>${cxf.version}</version>
 		</dependency>
 	</dependencies>
 </project>

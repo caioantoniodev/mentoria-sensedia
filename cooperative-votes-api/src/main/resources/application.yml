@@ -14,7 +14,7 @@ application:
 server:
   port: 8080
   servlet:
-    context-path: /api.cooperative-votes-api
+    context-path: /cooperative-votes-api
     application-display-name: cooperative-votes-api
 spring:
   mvc:
