@@ -8,13 +8,15 @@
         <version>2.6.6</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>edu.mentorship</groupId>
+    <groupId>edu.mentorship.cooperativevotes</groupId>
     <artifactId>cooperative-votes-api</artifactId>
     <version>0.0.1</version>
     <name>cooperative-votes-api</name>
     <description>Mentorship project for Spring Boot</description>
     <properties>
+        <app.code>cooperative-votes-api</app.code>
         <java.version>11</java.version>
+
         <maven-dependency-plugin.version>3.1.1</maven-dependency-plugin.version>
         <download-maven-plugin.version>1.5.0</download-maven-plugin.version>
         <maven-plugin.version>1.5.0</maven-plugin.version>
@@ -33,6 +35,7 @@
         <jacoco.skip>${skipTests}</jacoco.skip>
     </properties>
     <build>
+        <finalName>${app.code}</finalName>
         <plugins>            <!--      configure spring-boot-maven-plugin      -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -103,6 +106,7 @@
                             <tasks>
                                 <replace file="target/jacoco-ut/jacoco.xml" token="edu/" value="src/main/java/edu/"/>
                             </tasks>
+                            <!--suppress MavenModelInspection -->
                             <skip>${jacoco.skip}</skip>
                         </configuration>
                         <goals>
