@@ -106,6 +106,7 @@
                             <tasks>
                                 <replace file="target/jacoco-ut/jacoco.xml" token="edu/" value="src/main/java/edu/"/>
                             </tasks>
+                            <!--suppress MavenModelInspection -->
                             <skip>${jacoco.skip}</skip>
                         </configuration>
                         <goals>
