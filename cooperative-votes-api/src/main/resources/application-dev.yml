@@ -1,7 +1,7 @@
 cooperative-votes-api:
   configurations:
     datasource:
-      uri:
+      uri: mongodb://neo:matrix@localhost:8080/cooperative-votes-ms
     kafka:
       producer:
         bootstrapServerHost: localhost:9092
