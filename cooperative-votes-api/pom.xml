@@ -40,6 +40,7 @@
         <!--suppress UnresolvedMavenProperty -->
         <jacoco.skip>${skipTests}</jacoco.skip>
         <de.flapdoodle.embed.mongo.version>2.2.0</de.flapdoodle.embed.mongo.version>
+        <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
     </properties>
     <build>
         <finalName>${app.code}</finalName>
@@ -182,7 +183,7 @@
         <dependency>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-compiler-plugin</artifactId>
-            <version>3.10.1</version>
+            <version>${maven-compiler-plugin.version}</version>
         </dependency>
 
         <!-- SpringBoot Dev Dependencies  -->
