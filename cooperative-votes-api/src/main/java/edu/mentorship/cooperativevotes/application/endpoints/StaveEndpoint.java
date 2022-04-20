@@ -18,8 +18,8 @@ public class StaveEndpoint implements StaveApi {
     }
 
     @Override
-    @PutMapping
-    public ResponseEntity<StaveDto> update(Long id, InputUpdateStaveDto inputUpdateStaveDto) {
+    @PutMapping("/{id}")
+    public ResponseEntity<StaveDto> update(@PathVariable Long id, InputUpdateStaveDto inputUpdateStaveDto) {
         return StaveApi.super.update(id, inputUpdateStaveDto);
     }
 
