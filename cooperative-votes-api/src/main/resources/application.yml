@@ -33,7 +33,7 @@ spring:
         enabled: false
     mongodb:
       uri: ${cooperative-votes-api.configurations.datasource.uri}
-      field-naming-strategy: org.springframework.data.mongodb.core.mapping.SnakeCaseFieldNamingStrategy
+      field-naming-strategy: org.springframework.data.mapping.model.SnakeCaseFieldNamingStrategy
   jackson:
     default-property-inclusion: non_null
     serialization:
