@@ -81,7 +81,7 @@ info:
     url: "https://www.apache.org/licenses/LICENSE-2.0.html"
 
 servers:
-  - url: http://localhost:8080/cooperative-votes-api/
+  - url: http://localhost:8080/api/
     description: 'Servidor de aplicação de desenvolvimento'
 
 
