@@ -2,6 +2,7 @@ package edu.mentorship.cooperativevotes.application.endpoints;
 
 import edu.mentorship.cooperativevotes.application.api.StaveApi;
 import edu.mentorship.cooperativevotes.application.dto.InputNewStaveDto;
+import edu.mentorship.cooperativevotes.application.dto.InputStartSessionDto;
 import edu.mentorship.cooperativevotes.application.dto.InputUpdateStaveDto;
 import edu.mentorship.cooperativevotes.application.dto.StaveDto;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +22,11 @@ public class StaveEndpoint implements StaveApi {
     @PutMapping("/{id}")
     public ResponseEntity<StaveDto> update(@PathVariable Long id, InputUpdateStaveDto inputUpdateStaveDto) {
         return StaveApi.super.update(id, inputUpdateStaveDto);
+    }
+
+    @Override
+    public ResponseEntity<Void> startSession(Long id, InputStartSessionDto inputStartSessionDto) {
+        return StaveApi.super.startSession(id, inputStartSessionDto);
     }
 
     @Override

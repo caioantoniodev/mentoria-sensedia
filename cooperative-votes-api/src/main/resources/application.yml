@@ -1,7 +1,11 @@
 cooperative-votes-api:
   configurations:
     datasource:
-      uri: ~
+      host: ~
+      port: 0
+      database: ~
+      username: ~
+      password: ~
     kafka:
       producer:
         bootstrapServerHost: ~
@@ -32,8 +36,12 @@ spring:
       repositories:
         enabled: false
     mongodb:
-      uri: ${cooperative-votes-api.configurations.datasource.uri}
       field-naming-strategy: org.springframework.data.mapping.model.SnakeCaseFieldNamingStrategy
+      host: ${cooperative-votes-api.configurations.datasource.host}
+      port: ${cooperative-votes-api.configurations.datasource.port}
+      database: ${cooperative-votes-api.configurations.datasource.database}
+      username: ${cooperative-votes-api.configurations.datasource.username}
+      password: ${cooperative-votes-api.configurations.datasource.password}
   jackson:
     default-property-inclusion: non_null
     serialization:
