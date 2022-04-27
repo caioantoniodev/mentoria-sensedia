@@ -4,12 +4,9 @@ import edu.mentorship.cooperativevotes.AbstractContextTest;
 import edu.mentorship.cooperativevotes.application.dto.InputNewStaveDto;
 import io.restassured.RestAssured;
 import io.restassured.mapper.ObjectMapperType;
-import io.restassured.specification.RequestSpecification;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class StaveEndpointTest extends AbstractContextTest {
 
