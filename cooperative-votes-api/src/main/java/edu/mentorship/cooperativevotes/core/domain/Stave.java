@@ -1,7 +1,6 @@
-package edu.mentorship.cooperativevotes.core.stave.domain;
+package edu.mentorship.cooperativevotes.core.domain;
 
 import lombok.Data;
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
@@ -10,8 +9,7 @@ import java.time.LocalDateTime;
 @Document(collection = "stave")
 public class Stave {
 
-    @Id
-    private long id;
+    private String id;
 
     private String theme;
 

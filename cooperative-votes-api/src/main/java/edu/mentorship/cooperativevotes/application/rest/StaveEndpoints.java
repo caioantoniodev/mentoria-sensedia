@@ -7,6 +7,7 @@ import edu.mentorship.cooperativevotes.application.dto.StaveDto;
 import edu.mentorship.cooperativevotes.application.usecase.CreateStave;
 import edu.mentorship.cooperativevotes.application.usecase.UpdateStave;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.MessageSource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,8 +17,9 @@ import static org.springframework.http.HttpStatus.OK;
 @RestController
 @RequestMapping(value = "/staves")
 @RequiredArgsConstructor
-public class StaveEndpoint implements StaveApi {
+public class StaveEndpoints implements StaveApi, EndpointsTranslator {
 
+    private final MessageSource messageSource;
     private final CreateStave createStave;
     private final UpdateStave updateStave;
 
@@ -34,11 +36,17 @@ public class StaveEndpoint implements StaveApi {
     @Override
     @PutMapping("/{id}")
     public ResponseEntity<StaveDto> update(
-            @PathVariable("id") Long id,
+            @PathVariable("id") String id,
             InputUpdateStaveDto inputUpdateStaveDto) {
 
         var payload = updateStave.update(id, inputUpdateStaveDto);
 
         return ResponseEntity.status(OK).body(payload);
+    }
+
+    @Override
+    public MessageSource getMessageSource() {
+
+        return messageSource;
     }
 }
