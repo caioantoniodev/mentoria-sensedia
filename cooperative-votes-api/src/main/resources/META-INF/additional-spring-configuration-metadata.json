@@ -29,6 +29,16 @@
       "name": "application.version",
       "type": "java.lang.String",
       "description": "Application version."
+    },
+    {
+      "name": "cooperative-votes-api.configurations.datasource.host",
+      "type": "java.lang.String",
+      "description": "Description for cooperative-votes-api.configurations.datasource.host."
+    },
+    {
+      "name": "cooperative-votes-api.configurations.datasource.authentication-database",
+      "type": "java.lang.String",
+      "description": "Description for cooperative-votes-api.configurations.datasource.authentication-database."
     }
   ]
 }

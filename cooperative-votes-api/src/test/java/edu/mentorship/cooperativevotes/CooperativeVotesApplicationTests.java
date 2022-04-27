@@ -11,5 +11,4 @@ class CooperativeVotesApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
 }

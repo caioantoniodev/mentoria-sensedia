@@ -1,7 +1,12 @@
 cooperative-votes-api:
   configurations:
     datasource:
-      uri: mongodb://neo:matrix@localhost:8080/votes-db
+      host: localhost
+      port: 27017
+      database: votes-db
+      username: neo
+      password: matrix
+      authentication-database: admin
     kafka:
       producer:
         bootstrapServerHost: localhost:9092
