@@ -1,6 +1,6 @@
 package edu.mentorship.cooperativevotes.application.usecase;
 
-import edu.mentorship.cooperativevotes.core.stave.domain.Stave;
+import edu.mentorship.cooperativevotes.core.domain.Stave;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -19,7 +19,7 @@ public class FindStave {
 
     private static final String ID_PROPERTY = "id";
 
-    public Optional<Stave> find(Long id) {
+    public Optional<Stave> find(String id) {
         var query = new Query(Criteria.where(ID_PROPERTY).is(id));
 
         return  Optional.ofNullable(mongoTemplate.findOne(query, Stave.class));

@@ -20,7 +20,7 @@ public class UpdateStave {
 
     private final FindStave findStave;
 
-    public StaveDto update(Long id, InputUpdateStaveDto inputUpdateStaveDto) {
+    public StaveDto update(String id, InputUpdateStaveDto inputUpdateStaveDto) {
 
         //        var query = new Query(Criteria.where(ID_PROPERTY).is(id));
         //
