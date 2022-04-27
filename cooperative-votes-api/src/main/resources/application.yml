@@ -6,6 +6,8 @@ cooperative-votes-api:
       database: ~
       username: ~
       password: ~
+      authentication-database: ~
+
     kafka:
       producer:
         bootstrapServerHost: ~
@@ -42,6 +44,7 @@ spring:
       database: ${cooperative-votes-api.configurations.datasource.database}
       username: ${cooperative-votes-api.configurations.datasource.username}
       password: ${cooperative-votes-api.configurations.datasource.password}
+      authentication-database: ${cooperative-votes-api.configurations.datasource.authentication-database}
   jackson:
     default-property-inclusion: non_null
     serialization:

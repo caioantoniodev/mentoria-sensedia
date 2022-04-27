@@ -8,7 +8,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
 @SpringBootApplication
-@EnableConfigurationProperties(value = {KafkaProperties.class, RedisProperties.class, MongoProperties.class})
+@EnableConfigurationProperties(value = {
+        KafkaProperties.class,
+        RedisProperties.class,
+        MongoProperties.class
+})
 public class CooperativeVotesApplication {
 
     public static void main(String[] args) {
