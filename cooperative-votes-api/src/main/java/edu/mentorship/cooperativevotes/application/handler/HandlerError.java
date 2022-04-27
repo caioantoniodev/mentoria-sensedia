@@ -60,22 +60,6 @@ public class HandlerError implements EndpointsTranslator {
         return buildErrorBaseDtoWithDetails(http, errorDetailsDtos);
     }
 
-    private ResponseEntity<ErrorBaseDto> buildResponseError(
-            HttpServletRequest request,
-            String code,
-            HttpStatus httpStatus,
-            String... args) {
-        var path = request.getServletPath();
-        var locale = getLocale(request.getHeader(ACCEPT_LANGUAGE));
-        var message = getMessage(code, locale, args);
-        var error = new ErrorDto()
-                .message(message)
-                .path(path)
-                .statusCode(httpStatus.value());
-
-        return ResponseEntity.status(httpStatus).body(error);
-    }
-
     private ResponseEntity<ErrorBaseDto> buildErrorBaseDtoWithDetails(HttpServletRequest request,
                                                                        List<ErrorDetailsDto> errors) {
         var path = request.getServletPath();
