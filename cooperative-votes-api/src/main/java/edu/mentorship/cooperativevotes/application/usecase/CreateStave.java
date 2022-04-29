@@ -23,6 +23,7 @@ public class CreateStave {
         var entity = modelMapper.map(inputNewStaveDto, Stave.class);
 
         entity.setId(UUID.randomUUID().toString());
+        entity.createAt();
 
         mongoTemplate.save(entity);
 

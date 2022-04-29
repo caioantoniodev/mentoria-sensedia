@@ -29,21 +29,22 @@ public class UpdateStave {
         //        updateDefinition.set("theme", inputUpdateStaveDto.getTheme());
         //        updateDefinition.set("description", inputUpdateStaveDto.getDescription());
         //
-        //        var stave = mongoTemplate.updateFirst(query, updateDefinition, Stave.class);
+        //        var entity = mongoTemplate.updateFirst(query, updateDefinition, Stave.class);
         //
-        //        return modelMapper.map(stave, StaveDto.class);
+        //        return modelMapper.map(entity, StaveDto.class);
 
         var staveOptional = findStave.find(id);
 
         if (!staveOptional.isPresent())
             return null;
 
-        var stave = staveOptional.get();
+        var entity = staveOptional.get();
 
-        stave.setTheme(inputUpdateStaveDto.getTheme());
-        stave.setDescription(inputUpdateStaveDto.getDescription());
+        entity.setTheme(inputUpdateStaveDto.getTheme());
+        entity.setDescription(inputUpdateStaveDto.getDescription());
+        entity.updateAt();
 
-        var staveUpdated = mongoTemplate.save(stave);
+        var staveUpdated = mongoTemplate.save(entity);
 
         return modelMapper.map(staveUpdated, StaveDto.class);
     }
