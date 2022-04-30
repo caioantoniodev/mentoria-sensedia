@@ -3,7 +3,7 @@ version: '3'
 services:
   mongo:
     image: mongo
-    container_name: cooperative_votes_ms_mongo
+    container_name: cooperative_votes_api_mongo
     ports:
       - "27017:27017"
     environment:
@@ -16,7 +16,7 @@ services:
 
   mongo-express:
     image: mongo-express
-    container_name: cooperative_votes_ms_mongo_express
+    container_name: cooperative_votes_api_mongo_express
     ports:
       - "8081:8081"
     environment:
@@ -34,13 +34,13 @@ services:
       - mongo_dev:/data/db
 
   zookeeper:
-    container_name: cooperative_votes_ms_zookeeper
+    container_name: cooperative_votes_api_zookeeper
     image: wurstmeister/zookeeper
     ports:
       - "2181:2181"
 
   kafka:
-    container_name: cooperative_votes_ms_kafka
+    container_name: cooperative_votes_api_kafka
     image: wurstmeister/kafka
     ports:
       - "9092:9092"
@@ -52,7 +52,7 @@ services:
       KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'false'
 
   redis:
-    container_name: cooperative_votes_ms_redis
+    container_name: cooperative_votes_api_redis
     image: library/redis:alpine
     ports:
       - "6379:6379"

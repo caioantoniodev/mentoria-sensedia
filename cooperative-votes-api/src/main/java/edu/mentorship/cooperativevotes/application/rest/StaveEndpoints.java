@@ -4,6 +4,7 @@ import edu.mentorship.cooperativevotes.application.api.StaveApi;
 import edu.mentorship.cooperativevotes.application.dto.InputNewStaveDto;
 import edu.mentorship.cooperativevotes.application.dto.InputUpdateStaveDto;
 import edu.mentorship.cooperativevotes.application.dto.StaveDto;
+import edu.mentorship.cooperativevotes.application.usecase.CancelStave;
 import edu.mentorship.cooperativevotes.application.usecase.CreateStave;
 import edu.mentorship.cooperativevotes.application.usecase.UpdateStave;
 import lombok.RequiredArgsConstructor;
@@ -17,11 +18,11 @@ import static org.springframework.http.HttpStatus.OK;
 @RestController
 @RequestMapping(value = "/staves")
 @RequiredArgsConstructor
-public class StaveEndpoints implements StaveApi, EndpointsTranslator {
+public class StaveEndpoints implements StaveApi {
 
-    private final MessageSource messageSource;
     private final CreateStave createStave;
     private final UpdateStave updateStave;
+    private final CancelStave cancelStave;
 
     @Override
     @PostMapping
@@ -45,8 +46,8 @@ public class StaveEndpoints implements StaveApi, EndpointsTranslator {
     }
 
     @Override
-    public MessageSource getMessageSource() {
-
-        return messageSource;
+    public ResponseEntity<Void> cancel(String id) {
+        cancelStave.cancelStave(id);
+        return ResponseEntity.noContent().build();
     }
 }
