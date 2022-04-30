@@ -236,9 +236,8 @@ paths:
           name: id
           description: identificar único Pauta para localizar a Pauta a ser cancelada.
           schema:
-            type: integer
-            format: int64
-            example: 1
+            type: string
+            example: "0c46ecca-b2dc-48ff-a6df-bed640ec3894"
       responses:
         '204':
           description: Pauta cancelada com sucesso.
