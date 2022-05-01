@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Component;
 
+import static java.lang.Boolean.FALSE;
+
 @Component
 @RequiredArgsConstructor
 public class UpdateStave {
@@ -22,26 +24,24 @@ public class UpdateStave {
 
     public StaveDto update(String id, InputUpdateStaveDto inputUpdateStaveDto) {
 
-        //        var query = new Query(Criteria.where(ID_PROPERTY).is(id));
-        //
-        //        Update updateDefinition = new Update();
-        //
-        //        updateDefinition.set("theme", inputUpdateStaveDto.getTheme());
-        //        updateDefinition.set("description", inputUpdateStaveDto.getDescription());
-        //
-        //        var entity = mongoTemplate.updateFirst(query, updateDefinition, Stave.class);
-        //
-        //        return modelMapper.map(entity, StaveDto.class);
-
         var staveOptional = findStave.find(id);
 
-        if (!staveOptional.isPresent())
+        if (staveOptional.isEmpty())
             return null;
 
         var entity = staveOptional.get();
 
-        entity.setTheme(inputUpdateStaveDto.getTheme());
-        entity.setDescription(inputUpdateStaveDto.getDescription());
+        if (FALSE.equals(entity.getTheme().equals(inputUpdateStaveDto.getTheme()))) {
+            var optionalStave = findStave.findByThemeAndStateNotSessionVotesDone(
+                    inputUpdateStaveDto.getTheme());
+
+            if (optionalStave.isPresent())
+                throw new RuntimeException();
+
+            entity.setTheme(inputUpdateStaveDto.getTheme());
+            entity.setDescription(inputUpdateStaveDto.getDescription());
+        }
+
         entity.updateAt();
 
         var staveUpdated = mongoTemplate.save(entity);

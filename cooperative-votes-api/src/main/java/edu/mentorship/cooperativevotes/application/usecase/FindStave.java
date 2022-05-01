@@ -18,10 +18,22 @@ public class FindStave {
     private MongoTemplate mongoTemplate;
 
     private static final String ID_PROPERTY = "id";
+    private static final String THEME_PROPERTY = "theme";
+    private static final String STATE_PROPERTY = "SESSION_VOTES_DONE";
 
     public Optional<Stave> find(String id) {
         var query = new Query(Criteria.where(ID_PROPERTY).is(id));
 
         return  Optional.ofNullable(mongoTemplate.findOne(query, Stave.class));
+    }
+
+    public Optional<Stave> findByThemeAndStateNotSessionVotesDone(String theme) {
+
+        Query query = new Query();
+
+        query.addCriteria(Criteria.where(THEME_PROPERTY).is(theme));
+        query.addCriteria(Criteria.where(STATE_PROPERTY).is("SESSION_VOTES_DONE"));
+
+        return Optional.ofNullable(mongoTemplate.findOne(query, Stave.class));
     }
 }
