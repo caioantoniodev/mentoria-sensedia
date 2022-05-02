@@ -4,7 +4,6 @@ import lombok.Data;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
-import java.time.ZoneId;
 
 @Data
 @Document(collection = "stave")
@@ -33,11 +32,11 @@ public class Stave {
     private int totalVoteInvalid;
 
     public void createAt() {
-        createAt = LocalDateTime.now(ZoneId.of("UTC"));
+        createAt = LocalDateTime.now();
         updateAt();
     }
 
     public void updateAt() {
-        updateAt = LocalDateTime.now(ZoneId.of("UTC"));
+        updateAt = LocalDateTime.now();
     }
 }
