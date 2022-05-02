@@ -19,7 +19,7 @@ public class FindStave {
 
     private static final String ID_PROPERTY = "id";
     private static final String THEME_PROPERTY = "theme";
-    private static final String STATE_PROPERTY = "SESSION_VOTES_DONE";
+    private static final String STATE_PROPERTY = "state";
 
     public Optional<Stave> find(String id) {
         var query = new Query(Criteria.where(ID_PROPERTY).is(id));
@@ -27,7 +27,7 @@ public class FindStave {
         return  Optional.ofNullable(mongoTemplate.findOne(query, Stave.class));
     }
 
-    public Optional<Stave> findByThemeAndStateNotSessionVotesDone(String theme) {
+    public Optional<Stave> findByThemeAndStateIsSessionVotesDone(String theme) {
 
         Query query = new Query();
 
