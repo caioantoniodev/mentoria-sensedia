@@ -32,16 +32,15 @@ public class UpdateStave {
         var entity = staveOptional.get();
 
         if (FALSE.equals(entity.getTheme().equals(inputUpdateStaveDto.getTheme()))) {
-            var optionalStave = findStave.findByThemeAndStateNotSessionVotesDone(
+            var hasStave = findStave.findByThemeAndStateIsSessionVotesDone(
                     inputUpdateStaveDto.getTheme());
 
-            if (optionalStave.isPresent())
+            if (hasStave.isPresent())
                 throw new RuntimeException();
-
-            entity.setTheme(inputUpdateStaveDto.getTheme());
-            entity.setDescription(inputUpdateStaveDto.getDescription());
         }
 
+        entity.setTheme(inputUpdateStaveDto.getTheme());
+        entity.setDescription(inputUpdateStaveDto.getDescription());
         entity.updateAt();
 
         var staveUpdated = mongoTemplate.save(entity);
