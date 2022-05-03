@@ -19,7 +19,7 @@ import javax.validation.Path;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static edu.mentorship.cooperativevotes.structure.MessageMapper.ARGUMENT_INVALID;
+import static edu.mentorship.cooperativevotes.structure.mapper.MessageMapper.ARGUMENT_INVALID;
 import static org.springframework.http.HttpHeaders.ACCEPT_LANGUAGE;
 import static org.springframework.http.HttpStatus.BAD_REQUEST;
 

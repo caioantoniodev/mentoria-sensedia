@@ -1,4 +1,4 @@
-package edu.mentorship.cooperativevotes.core.domain;
+package edu.mentorship.cooperativevotes.core.stave.domain;
 
 import lombok.Data;
 import org.springframework.data.mongodb.core.mapping.Document;

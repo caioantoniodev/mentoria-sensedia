@@ -2,40 +2,33 @@ package edu.mentorship.cooperativevotes.application.usecase;
 
 import edu.mentorship.cooperativevotes.application.dto.InputUpdateStaveDto;
 import edu.mentorship.cooperativevotes.application.dto.StaveDto;
+import edu.mentorship.cooperativevotes.structure.repository.StaveRepository;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Component;
-
-import static java.lang.Boolean.FALSE;
 
 @Component
 @RequiredArgsConstructor
 public class UpdateStave {
 
-    @Autowired
-    private ModelMapper modelMapper;
+    private final ModelMapper modelMapper;
 
-    @Autowired
-    private MongoTemplate mongoTemplate;
-
-    private final FindStave findStave;
+    private final StaveRepository staveRepository;
 
     public StaveDto update(String id, InputUpdateStaveDto inputUpdateStaveDto) {
 
-        var staveOptional = findStave.find(id);
+        var staveOptional = staveRepository.findById(id);
 
         if (staveOptional.isEmpty())
-            return null;
+            throw new RuntimeException();
 
         var entity = staveOptional.get();
 
-        if (FALSE.equals(entity.getTheme().equals(inputUpdateStaveDto.getTheme()))) {
-            var hasStave = findStave.findByThemeAndStateIsSessionVotesDone(
-                    inputUpdateStaveDto.getTheme());
+        if (!entity.getTheme().equals(inputUpdateStaveDto.getTheme())) {
+            var stave = staveRepository.existsStaveByThemeAndState(
+                    inputUpdateStaveDto.getTheme(), "SESSION_VOTES_DONE");
 
-            if (hasStave.isPresent())
+            if (stave)
                 throw new RuntimeException();
         }
 
@@ -43,7 +36,7 @@ public class UpdateStave {
         entity.setDescription(inputUpdateStaveDto.getDescription());
         entity.updateAt();
 
-        var staveUpdated = mongoTemplate.save(entity);
+        var staveUpdated = staveRepository.save(entity);
 
         return modelMapper.map(staveUpdated, StaveDto.class);
     }
