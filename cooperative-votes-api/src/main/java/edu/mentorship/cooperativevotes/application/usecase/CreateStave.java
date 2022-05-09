@@ -2,8 +2,8 @@ package edu.mentorship.cooperativevotes.application.usecase;
 
 import edu.mentorship.cooperativevotes.application.dto.InputNewStaveDto;
 import edu.mentorship.cooperativevotes.application.dto.StaveDto;
-import edu.mentorship.cooperativevotes.structure.repository.StaveRepository;
 import edu.mentorship.cooperativevotes.core.stave.domain.Stave;
+import edu.mentorship.cooperativevotes.structure.repository.StaveRepository;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
