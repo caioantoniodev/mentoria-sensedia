@@ -11,8 +11,22 @@ import javax.validation.constraints.NotBlank;
 @Data
 public class MongoProperties {
 
+    private Integer port = 27017;
+
     private String database = "votes-db";
 
     @NotBlank
-    private String uri;
+    private String host;
+
+    @NotBlank
+    private String username;
+
+    @NotBlank
+    private String password;
+
+    private String authenticationDatabase;
+
+    public String buildConnectionString() {
+       return String.format("mongodb://%s:%s@%s:%d/%s?authSource=%s", username, password, host, port, database, authenticationDatabase);
+    }
 }

@@ -7,6 +7,7 @@ import edu.mentorship.cooperativevotes.application.dto.StaveDto;
 import edu.mentorship.cooperativevotes.application.usecase.CancelStave;
 import edu.mentorship.cooperativevotes.application.usecase.CreateStave;
 import edu.mentorship.cooperativevotes.application.usecase.UpdateStave;
+import edu.mentorship.cooperativevotes.structure.config.properties.MongoProperties;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -26,6 +27,7 @@ public class StaveEndpoints implements StaveApi {
     @Override
     @PostMapping
     public ResponseEntity<StaveDto> create(InputNewStaveDto inputNewStaveDto) {
+
         var payload = createStave.create(inputNewStaveDto);
 
         return ResponseEntity
